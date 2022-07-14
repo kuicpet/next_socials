@@ -3,6 +3,7 @@ import type { AppProps } from 'next/app'
 import { useState, useEffect } from 'react'
 import Navbar from '../components/Navbar'
 import Sidebar from '../components/Sidebar'
+import { GoogleOAuthProvider } from '@react-oauth/google'
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   const [isSSR, setIsSSR] = useState(true)
@@ -14,6 +15,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   if(isSSR) return null;
   
   return (
+    <GoogleOAuthProvider clientId={`${process.env.NEXT_PUBLIC_GOOGLE_API_TOKEN}`}>
     <div>
       <Navbar />
       <div className='flex gap-6 md:gap-20'>
@@ -26,6 +28,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
         </div>
       </div>
     </div>
+    </GoogleOAuthProvider>
   )
 }
 
