@@ -9,6 +9,7 @@ import useAuthStore from '../store/authStore';
 // import { BASE_URL } from '../utils';
 import { client } from '../utils/client';
 import { topics } from '../utils/constants';
+import { BASE_URL } from '../utils';
 
 const Upload = () => {
   const [caption, setCaption] = useState('');
@@ -71,7 +72,7 @@ const Upload = () => {
         topic,
       };
 
-      // await axios.post(`${BASE_URL}/api/post`, doc);
+      await axios.post(`${BASE_URL}/api/post`, doc);
         
       router.push('/');
     }
@@ -187,7 +188,7 @@ const Upload = () => {
             <button
               onClick={handleDiscard}
               type='button'
-              className='border-gray-300 border-2 text-md font-medium p-2 rounded w-28 lg:w-44 outline-none'
+              className='border-gray-300 border-2 text-md font-medium p-2 rounded w-28 lg:w-44 outline-none cursor-pointer'
             >
               Discard
             </button>
@@ -195,7 +196,7 @@ const Upload = () => {
               disabled={videoAsset?.url ? false : true}
               onClick={handlePost}
               type='button'
-              className='bg-[#F51997] text-white text-md font-medium p-2 rounded w-28 lg:w-44 outline-none'
+              className='bg-[#F51997] text-white text-md font-medium p-2 rounded w-28 lg:w-44 outline-none cursor-pointer'
             >
               {savingPost ? 'Posting...' : 'Post'}
             </button>
