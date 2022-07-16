@@ -21,6 +21,8 @@ const Detail = ({postDetails}: IProps) => {
   const [post, setPost] = useState(postDetails)
   const [playing, setPlaying] = useState(false)
   const [isVideoMuted, setIsVideoMuted] = useState(false)
+  const [comment, setComment] = useState('')
+  const [isPostingComment, setIsPostingComment] = useState(false)
   const videoRef = useRef<HTMLVideoElement>(null)
   const router = useRouter()
   const {userProfile}: any = useAuthStore()
@@ -49,6 +51,14 @@ const Detail = ({postDetails}: IProps) => {
         like})
 
         setPost({...post, likes: data.likes})
+    }
+  }
+
+  const addComment = async (e) => {
+    e.preventDefault()
+    if(userProfile && comment){
+      setIsPostingComment(true)
+      const response = await axios.put(`${BASE_URL}/api/post/${post._id}`, {userid: userProfile._id, comment})
     }
   }
 
@@ -130,7 +140,13 @@ const Detail = ({postDetails}: IProps) => {
               />
             )}
           </div>
-          <Comments />
+          <Comments 
+            comment={comment} 
+            setComment={setComment} 
+            addComment={addComment}
+            comments={post.comments}
+            isPostingCpmment={isPostingComment}
+             />
         </div>
       </div>
     </div>
