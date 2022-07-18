@@ -19,7 +19,7 @@ const Home = ({videos}: IProps) => {
         videos.length ? 
         videos.map((video: Video) => (<VideoCard post={video} key={video._id} />)
         ) : (
-        <NoResults text={`No Videos for ${topic}`} />
+        <NoResults text={topic ? `No Videos for ${topic}`: 'No Videos'} />
         )
       }
     </div>
