@@ -33,7 +33,7 @@ const Comments = ({comment, setComment, addComment, comments, isPostingComment}:
           {comments?.length ? (
             comments.map((item, index) => (
               <>
-                {allUsers?.map((user: IUser) => (
+                {allUsers.map((user: IUser) => (
                   user._id === (item.postedBy._id || item.postedBy._ref) && (
                     <div className='p-2 items-center' key={index}>
                       <Link href={`/profile/${user._id}`}>

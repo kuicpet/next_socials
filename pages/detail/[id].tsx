@@ -47,7 +47,7 @@ const Detail = ({postDetails}: IProps) => {
     if(userProfile){
       const {data} = await axios.put(`${BASE_URL}/api/like`, {
         userId: userProfile._id, 
-        postid: post._id, 
+        postId: post._id, 
         like})
 
         setPost({...post, likes: data.likes})
@@ -106,7 +106,7 @@ const Detail = ({postDetails}: IProps) => {
       </div>
       <div className='relative w-[1000px] md:w-[900px] lg:w-[700px]'>
         <div className='lg:mt-20 mt-10'>
-               <div className='flex gap-3 p-2 cursor-pointer font-semibold rounded'>
+          <div className='flex gap-3 p-2 cursor-pointer font-semibold rounded'>
             <div className='ml-4 md:w-16 md:h-16 w-16 h-16'>
               <Link href={'/'}>
                 <>
@@ -150,7 +150,7 @@ const Detail = ({postDetails}: IProps) => {
             addComment={addComment}
             comments={post.comments}
             isPostingCpmment={isPostingComment}
-             />
+            />
         </div>
       </div>
     </div>

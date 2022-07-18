@@ -14,7 +14,7 @@ export const createOrGetUser = async (response: any, addUser: any) => {
     userName: name,
     image: picture
   }
-  console.log(decoded)
+  // console.log(decoded)
   /*var base64Url = response.credential.split('.')[1];
   var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
   var jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {

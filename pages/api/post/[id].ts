@@ -20,7 +20,7 @@ export default async function handler(
     const {comment,userId} = req.body
     const {id}: any = req.query
 
-    const {data} = await client
+    const data = await client
     .patch(id)
     .setIfMissing({ comments: []})
     .insert('after','comments[-1]', [
