@@ -13,7 +13,7 @@ import useAuthStore from '../store/authStore'
 
 
 const Navbar = () => {
-  const {userProfile,addUser,removeUser} = useAuthStore()
+  const {userProfile,addUser,removeUser}: any = useAuthStore()
   const [searchQuery, setSearchQuery] = useState('')
   const router = useRouter()
   const handleSearch = (e : {preventDefault: () => void}) => {
@@ -63,7 +63,7 @@ const Navbar = () => {
                 <span className='hidden md:block'>Upload</span>
               </button>
             </Link>
-            {userProfile?.image && (
+            {userProfile?.image  && (
               <Link href={'/'}>
               <>
                 <Image 
