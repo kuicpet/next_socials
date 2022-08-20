@@ -7,6 +7,7 @@ interface IProps {
     handleLike: () => void
     handleDisLike: () => void
     likes: any[]
+    flex: string
     
 }
 
