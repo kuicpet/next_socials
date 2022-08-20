@@ -83,7 +83,7 @@ const Comments = ({comment, setComment, addComment, comments, isPostingComment}:
                   lg:w-[350px] border-gray-100 focus:outline-none 
                   focus:border-2 focus:border-gray-300 flex-1 rounded-lg'
                  />
-                 <button className='text-md text-gray-400' onClick={() => {}}>
+                 <button className='text-md text-gray-400' onClick={() => {addComment}}>
                   {isPostingComment ? 'Commenting' : 'Comment'}
                  </button>
             </form>
